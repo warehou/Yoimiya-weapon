@@ -1,13 +1,12 @@
-%% ¶Á±í
-
+%% è¯»è¡¨
 clear;
 clc;
 close all;
 
-% list_weapon={'·ÉÀ×1','·ÉÀ×5','ÈôË®1','ÈôË®5','¶¬¼«1','¶¬¼«5','°¢ÄªË¹1','°¢ÄªË¹5','Ìì¿Õ1','Ìì¿Õ5','¹­²Ø1','¹­²Ø5','ÆÆÄ§1','ÆÆÄ§5','µ¯¹­5'};
-list_weapon={'µ¯¹­5','¹­²Ø1','¹­²Ø5','ÆÆÄ§1','ÆÆÄ§5','·ÉÀ×1','ÈôË®1','¶¬¼«1','°¢ÄªË¹1','Ìì¿Õ1','·ÉÀ×5','ÈôË®5','¶¬¼«5','°¢ÄªË¹5','Ìì¿Õ5'};
-list_artifest={'×·Òä','ÓàÏì'};
-list_support={'ÎŞ¸¨Öú','°àÄáÌØ','ÔÆİÀ','°àÄáÌØÔÆİÀ'};
+% list_weapon={'é£é›·1','é£é›·5','è‹¥æ°´1','è‹¥æ°´5','å†¬æ1','å†¬æ5','é˜¿è«æ–¯1','é˜¿è«æ–¯5','å¤©ç©º1','å¤©ç©º5','å¼“è—1','å¼“è—5','ç ´é­”1','ç ´é­”5','å¼¹å¼“5'};
+list_weapon={'å¼¹å¼“5','å¼“è—1','å¼“è—5','ç ´é­”1','ç ´é­”5','é£é›·1','è‹¥æ°´1','å†¬æ1','é˜¿è«æ–¯1','å¤©ç©º1','é£é›·5','è‹¥æ°´5','å†¬æ5','é˜¿è«æ–¯5','å¤©ç©º5'};
+list_artifest={'è¿½å¿†','ä½™å“'};
+list_support={'æ— è¾…åŠ©','ç­å°¼ç‰¹','äº‘å ‡','ç­å°¼ç‰¹äº‘å ‡'};
 size_weapon=size(list_weapon,2);
 size_artifest=size(list_artifest,2);
 size_support=size(list_support,2);
@@ -22,10 +21,10 @@ table_combo_max=zeros(size_weapon,size_artifest,size_support);
 
 
 read_xls=0;     
-% read_xls=0 ¶ÁÈ¡data_trim.mat; 
-% read_xls=1 ¶ÁÈ¡xls;
+% read_xls=0 è¯»å–data_trim.mat; 
+% read_xls=1 è¯»å–xls;
 
-n=1:50:1001;   % 1001x1001Êı¾İ±íÏ¡ÊèÎª21x21
+n=1:50:1001;   % 1001x1001æ•°æ®è¡¨ç¨€ç–ä¸º21x21
 
 table_min=inf;
 table_max=-inf;
@@ -61,7 +60,7 @@ save('data_trim.mat','table_combo');
 
 end
 
-if read_xls==0    %¶ÁÈ¡data_trim.matÖĞµÄÊı¾İ
+if read_xls==0    %è¯»å–data_trim.matä¸­çš„æ•°æ®
     
     table_combo=struct2cell(load("data_trim.mat","table_combo"));
     table_combo=table_combo{1};
@@ -92,7 +91,7 @@ y=0:4/20:4;
 [x,y]=meshgrid(x,y);
 
 
-%% »æÍ¼1  Í¬Ò»¸¨ÖúÌõ¼şÏÂ£¬±È½Ï¸÷ÎäÆ÷
+%% ç»˜å›¾1  åŒä¸€è¾…åŠ©æ¡ä»¶ä¸‹ï¼Œæ¯”è¾ƒå„æ­¦å™¨
 
 
 weapon_group_1=1:5;
@@ -100,20 +99,20 @@ weapon_group_2=6:10;
 weapon_group_3=11:15;
 
 
-%%%%%%%%%µ÷Õû´ËÏîÒÔ±ä¸üFigure 1ÎäÆ÷·Ö×é%%%%%%%%%%%%%%%%5%%%%%%
+%%%%%%%%%è°ƒæ•´æ­¤é¡¹ä»¥å˜æ›´Figure 1æ­¦å™¨åˆ†ç»„%%%%%%%%%%%%%%%%5%%%%%%
 
-weapon_group=1:10; %[weapon_group_1£¬weapon_group_2,weapon_group_3];
+weapon_group=1:10; %[weapon_group_1ï¼Œweapon_group_2,weapon_group_3];
 
-%%%%%%%%%µ÷Õû´ËÏîÒÔ±ä¸üFigure 1ÎäÆ÷·Ö×é%%%%%%%%%%%%%%%%5%%%%%%
-% 1:5   ÈıĞÇËÄĞÇ
-%6:10   ÎåĞÇÒ»¾«
-%11:15  ÎåĞÇÂú¾«
-%×î¶à20·ùÍ¼Ïñ£¬¿ÉÒÔÍ¬Ê±·¢²¼Á½×é£¬Èç1:10»ò6:15
+%%%%%%%%%è°ƒæ•´æ­¤é¡¹ä»¥å˜æ›´Figure 1æ­¦å™¨åˆ†ç»„%%%%%%%%%%%%%%%%5%%%%%%
+% 1:5   ä¸‰æ˜Ÿå››æ˜Ÿ
+%6:10   äº”æ˜Ÿä¸€ç²¾
+%11:15  äº”æ˜Ÿæ»¡ç²¾
+%æœ€å¤š20å¹…å›¾åƒï¼Œå¯ä»¥åŒæ—¶å‘å¸ƒä¸¤ç»„ï¼Œå¦‚1:10æˆ–6:15
 
-weapon_group_cat=reshape(repmat({'ÈıĞÇËÄĞÇ','ÎåĞÇÒ»¾«','ÎåĞÇÂú¾«'},[5,1]),1,[]);
+weapon_group_cat=reshape(repmat({'ä¸‰æ˜Ÿå››æ˜Ÿ','äº”æ˜Ÿä¸€ç²¾','äº”æ˜Ÿæ»¡ç²¾'},[5,1]),1,[]);
 
-weapon_colum_num=size(weapon_group,2)*2/5;  %Ã¿ĞĞ2nÁĞ                             
-weapon_group_num=5;                         %Ã¿ÁĞ5·ùÍ¼
+weapon_colum_num=size(weapon_group,2)*2/5;  %æ¯è¡Œ2nåˆ—                             
+weapon_group_num=5;                         %æ¯åˆ—5å¹…å›¾
 
 support_group=1:4;
 
@@ -133,8 +132,8 @@ contour_level_we_max=max(max(squeeze(table_combo_max(weapon_group,:,su))));
 contour_level_we_lower=floor(contour_level_we_min*10)/10;
 contour_level_we_upper=ceil(contour_level_we_max*10)/10;
 
-%µÈ¸ßÏß¼ä¾à
-contour_level_we_gap=[0.05,0.1,0.1,0.2];    %µÈ¸ßÏß¼ä¾à
+%ç­‰é«˜çº¿é—´è·
+contour_level_we_gap=[0.05,0.1,0.1,0.2];    %ç­‰é«˜çº¿é—´è·
 
 %contour_level_we_gap=contour_level_we_max-contour_level_we_min;
 contour_level_we=[contour_level_we_lower:contour_level_we_gap(su):contour_level_we_upper];
@@ -157,11 +156,11 @@ contour_caxis_limit_we=[contour_level_we_lower,contour_level_we_upper];
 %             table_max=max(max(max(table_1),max(max(table_2))));
                                     
             figure (su) 
-            set(gcf,'Position',[100 -200 400*weapon_colum_num 1200]);   %Í¼Ïñ·Ö±æÂÊ
+            set(gcf,'Position',[100 -200 400*weapon_colum_num 1200]);   %å›¾åƒåˆ†è¾¨ç‡
             
             colormap("turbo");
 
-            fig_col=weapon_colum_num;          %±È½ÏÁ½Ì×Ê¥ÒÅÎï=±ØÎªË«Êı
+            fig_col=weapon_colum_num;          %æ¯”è¾ƒä¸¤å¥—åœ£é—ç‰©=å¿…ä¸ºåŒæ•°
             fig_row=weapon_group_num;       
             
 %             if mod(we,fig_row)==0
@@ -172,7 +171,7 @@ contour_caxis_limit_we=[contour_level_we_lower,contour_level_we_upper];
             fig_we_mod=mod(we+fig_row-1,fig_row)+1;
             fig_we_num=we-weapon_group(1)+1;
 
-            if fig_we_num<=fig_row  %×ó²àÊ®·ùÍ¼
+            if fig_we_num<=fig_row  %å·¦ä¾§åå¹…å›¾
 
                 subplot(weapon_group_num,fig_col,fig_col*(fig_we_mod-1)+1);
 
@@ -180,8 +179,8 @@ contour_caxis_limit_we=[contour_level_we_lower,contour_level_we_upper];
                 [ct1,c1]=contourf(x,y,table_1,contour_level_we,'k','ShowText','on','LineWidth',1);
                 caxis(contour_caxis_limit_we);
                 title(subplot_title_1);
-                xlabel('¹¥»÷Á¦Õ¼±È');
-                ylabel('Ê¥ÒÅÎï');
+                xlabel('æ”»å‡»åŠ›å æ¯”');
+                ylabel('åœ£é—ç‰©');
                 set(gca,'FontName','Microsoft YaHei');
     
     
@@ -191,19 +190,19 @@ contour_caxis_limit_we=[contour_level_we_lower,contour_level_we_upper];
                 caxis(contour_caxis_limit_we);
                 subplot_title_2=table_name(we,2,su);
                 title(subplot_title_2);
-                xlabel('¹¥»÷Á¦Õ¼±È');
-                ylabel('Ê¥ÒÅÎï');
+                xlabel('æ”»å‡»åŠ›å æ¯”');
+                ylabel('åœ£é—ç‰©');
 
                 set(gca,'FontName','Microsoft YaHei');
 
-            else    %ÓÒ²àÊ®·ùÍ¼
+            else    %å³ä¾§åå¹…å›¾
             subplot(weapon_group_num,fig_col,fig_col*(fig_we_num-fig_row)-1);
             subplot_title_1=table_name(we,1,su);
             ct1=contourf(x,y,table_1,contour_level_we,'k','ShowText','on','LineWidth',1);
             caxis(contour_caxis_limit_we);
             title(subplot_title_1);
-            xlabel('¹¥»÷Á¦Õ¼±È');
-            ylabel('Ê¥ÒÅÎï');
+            xlabel('æ”»å‡»åŠ›å æ¯”');
+            ylabel('åœ£é—ç‰©');
             set(gca,'FontName','Microsoft YaHei');
 
 
@@ -212,35 +211,35 @@ contour_caxis_limit_we=[contour_level_we_lower,contour_level_we_upper];
             caxis(contour_caxis_limit_we);
             subplot_title_2=table_name(we,2,su);
             title(subplot_title_2);
-            xlabel('¹¥»÷Á¦Õ¼±È');
-            ylabel('Ê¥ÒÅÎï');
+            xlabel('æ”»å‡»åŠ›å æ¯”');
+            ylabel('åœ£é—ç‰©');
             set(gca,'FontName','Microsoft YaHei');
 
             end
     end
     if size(weapon_group,2)==5
-        fig_title_1=strcat('Ïö¹¬',weapon_group_cat(we-5),'+',list_support{su},' by ÌğèÖ×Ó & 1A7489 @Ã×ÓÎÉç');
+        fig_title_1=strcat('éœ„å®«',weapon_group_cat(we-5),'+',list_support{su},' by ç”œæŸšå­ & 1A7489 @ç±³æ¸¸ç¤¾');
     end
     if size(weapon_group,2)==10
-        fig_title_1=strcat('Ïö¹¬',weapon_group_cat(we-5),'VS',weapon_group_cat(we),'+',list_support{su},' by ÌğèÖ×Ó & 1A7489 @Ã×ÓÎÉç');
+        fig_title_1=strcat('éœ„å®«',weapon_group_cat(we-5),'VS',weapon_group_cat(we),'+',list_support{su},' by ç”œæŸšå­ & 1A7489 @ç±³æ¸¸ç¤¾');
     end
     sgt=sgtitle(fig_title_1);
     sgt.FontName='Microsoft YaHei';
     
-    fig_filename_1=strcat('ÎäÆ÷',num2str(weapon_group(1)),'~',num2str(weapon_group(end)),'+',list_support{su},'.png');
+    fig_filename_1=strcat('æ­¦å™¨',num2str(weapon_group(1)),'~',num2str(weapon_group(end)),'+',list_support{su},'.png');
     saveas(gcf,fig_filename_1);
 end
             
-%% »æÍ¼2 ±È½ÏÁ½ÖÖÖÖÎäÆ÷
+%% ç»˜å›¾2 æ¯”è¾ƒä¸¤ç§ç§æ­¦å™¨
 
 weapon_auto=2;
-% refine_auto=0  ÊÖ¶¯ÊäÈëĞèÒª±È½ÏµÄÎäÆ÷
-% refine_auto=1  ×Ô¶¯Éú³ÉÍ¬ÖÖÎäÆ÷¾«Ò»¾«Îå
-% refine_auto=2  ×Ô¶¯Éú³ÉÃ¿¼şÎäÆ÷Á½ÖÖÊ¥ÒÅÎï
+% refine_auto=0  æ‰‹åŠ¨è¾“å…¥éœ€è¦æ¯”è¾ƒçš„æ­¦å™¨
+% refine_auto=1  è‡ªåŠ¨ç”ŸæˆåŒç§æ­¦å™¨ç²¾ä¸€ç²¾äº”
+% refine_auto=2  è‡ªåŠ¨ç”Ÿæˆæ¯ä»¶æ­¦å™¨ä¸¤ç§åœ£é—ç‰©
 
 fig_gif=0;
-% fig_gif=0;    ½öÏÔÊ¾ÈıÎ¬ÔÆÍ¼»æÖÆ¹ı³Ì, ²»Êä³ögif
-% fig_gif=1;    ²»»æÖÆ¶şÎ¬ÔÆÍ¼£¬Êä³ögif
+% fig_gif=0;    ä»…æ˜¾ç¤ºä¸‰ç»´äº‘å›¾ç»˜åˆ¶è¿‡ç¨‹, ä¸è¾“å‡ºgif
+% fig_gif=1;    ä¸ç»˜åˆ¶äºŒç»´äº‘å›¾ï¼Œè¾“å‡ºgif
 
 
 
@@ -248,24 +247,24 @@ if weapon_auto==0
 list_weapon_table=table([1:size(list_weapon,2)]',cell2table(list_weapon'));
 disp(list_weapon_table);
 
-we_compare1=input('ÇëÊäÈëµÚÒ»¼şÎäÆ÷±àºÅ£º');
+we_compare1=input('è¯·è¾“å…¥ç¬¬ä¸€ä»¶æ­¦å™¨ç¼–å·ï¼š');
 while ismember(we_compare1,[1:size(list_weapon,2)])==0
-    we_compare1=input('ÇëÊäÈëµÚÒ»¼şÎäÆ÷±àºÅ£º');
+    we_compare1=input('è¯·è¾“å…¥ç¬¬ä¸€ä»¶æ­¦å™¨ç¼–å·ï¼š');
 end
-ar_compare1=input('ÇëÊäÈëµÚÒ»¼şÎäÆ÷´îÅäÊ¥ÒÅÎï 1-×·Òä£»2-ÓàÏì£º');
+ar_compare1=input('è¯·è¾“å…¥ç¬¬ä¸€ä»¶æ­¦å™¨æ­é…åœ£é—ç‰© 1-è¿½å¿†ï¼›2-ä½™å“ï¼š');
 while ismember(ar_compare1,[1:size(list_artifest,2)])==0
-    x=input('ÇëÊäÈëµÚÒ»¼şÎäÆ÷´îÅäÊ¥ÒÅÎï 1-×·Òä£»2-ÓàÏì£º');   
+    x=input('è¯·è¾“å…¥ç¬¬ä¸€ä»¶æ­¦å™¨æ­é…åœ£é—ç‰© 1-è¿½å¿†ï¼›2-ä½™å“ï¼š');   
 end
-we_compare2=input('ÇëÊäÈëµÚ¶ş¼şÎäÆ÷±àºÅ£º');
+we_compare2=input('è¯·è¾“å…¥ç¬¬äºŒä»¶æ­¦å™¨ç¼–å·ï¼š');
 while ismember(we_compare2,[1:size(list_weapon,2)])==0
-    we_compare2=input('ÇëÊäÈëµÚ¶ş¼şÎäÆ÷±àºÅ£º');
+    we_compare2=input('è¯·è¾“å…¥ç¬¬äºŒä»¶æ­¦å™¨ç¼–å·ï¼š');
 end
-ar_compare2=input('ÇëÊäÈëµÚ¶ş¼şÎäÆ÷´îÅäÊ¥ÒÅÎï 1-×·Òä£»2-ÓàÏì£º');
+ar_compare2=input('è¯·è¾“å…¥ç¬¬äºŒä»¶æ­¦å™¨æ­é…åœ£é—ç‰© 1-è¿½å¿†ï¼›2-ä½™å“ï¼š');
 while ismember(ar_compare2,[1:size(list_artifest,2)])==0
-    ar_compare2=input('ÇëÊäÈëµÚ¶ş¼şÎäÆ÷´îÅäÊ¥ÒÅÎï 1-×·Òä£»2-ÓàÏì£º');   
+    ar_compare2=input('è¯·è¾“å…¥ç¬¬äºŒä»¶æ­¦å™¨æ­é…åœ£é—ç‰© 1-è¿½å¿†ï¼›2-ä½™å“ï¼š');   
 end
 
-%'¸¨Öú'×Ö¶ÎÁĞ±í
+%'è¾…åŠ©'å­—æ®µåˆ—è¡¨
 list_support_table=table([1:size(list_support,2)]',cell2table(list_support'));
 disp(list_support_table);
 
@@ -275,7 +274,7 @@ su_compare(1)=su;
 su_compare_temp=1;
 i=2;
 while and(ismember(su_compare_temp,[1:4]),i<=4)
-    su_compare_temp=input('ÇëÊäÈëÏëÒª±È½ÏµÄ¸¨Öú,°´ÈÎÒâ¼üÎªÎŞ¸¨Öú:');
+    su_compare_temp=input('è¯·è¾“å…¥æƒ³è¦æ¯”è¾ƒçš„è¾…åŠ©,æŒ‰ä»»æ„é”®ä¸ºæ— è¾…åŠ©:');
     if ismember(su_compare_temp,[1:4])
         su_compare(i)=su_compare_temp;
     else
@@ -289,13 +288,13 @@ else
     su_compare=[1:4];
     
     if weapon_auto==1
-    weapon_compare=[2,4,6:10];      %AUTO1Ä£Ê½£º±È½Ï¾«Ò»¾«Îå
-    ar_compare_temp=input('ÇëÊäÈë´îÅäÊ¥ÒÅÎï 1-×·Òä£»2-ÓàÏì£º'); %Ö¸¶¨Ê¥ÒÅÎïÌ××°
+    weapon_compare=[2,4,6:10];      %AUTO1æ¨¡å¼ï¼šæ¯”è¾ƒç²¾ä¸€ç²¾äº”
+    ar_compare_temp=input('è¯·è¾“å…¥æ­é…åœ£é—ç‰© 1-è¿½å¿†ï¼›2-ä½™å“ï¼š'); %æŒ‡å®šåœ£é—ç‰©å¥—è£…
     ar_compare1=ar_compare_temp;
     ar_compare2=ar_compare_temp;
     end
 
-    if weapon_auto==2               %Auto2Ä£Ê½£º±È½ÏÍ¬ÖÖÎäÆ÷²»Í¬Ê¥ÒÅÎï£»
+    if weapon_auto==2               %Auto2æ¨¡å¼ï¼šæ¯”è¾ƒåŒç§æ­¦å™¨ä¸åŒåœ£é—ç‰©ï¼›
     weapon_compare=[1:15];
     ar_compare1=1;
     ar_compare2=2;    
@@ -305,7 +304,7 @@ end
    
 for we=weapon_compare  % 2:15 %  size(list_weapon,2)
 
-    if weapon_auto==1         % Auto1·ÖÖ§±È½ÏÍ¬Ò»ÎäÆ÷¾«Ò»&¾«Îå   
+    if weapon_auto==1         % Auto1åˆ†æ”¯æ¯”è¾ƒåŒä¸€æ­¦å™¨ç²¾ä¸€&ç²¾äº”   
         if or(we==2,we==4)
             we_compare1=we;
             we_compare2=we+1;
@@ -322,7 +321,7 @@ for we=weapon_compare  % 2:15 %  size(list_weapon,2)
         we_compare2=we;
     end
     
-    %=========Êä³öÎÄ¼şÃû========
+    %=========è¾“å‡ºæ–‡ä»¶å========
     if we_compare1==we_compare2 
         fig_filename_2_we=list_weapon{we_compare1};
     else 
@@ -339,23 +338,23 @@ for we=weapon_compare  % 2:15 %  size(list_weapon,2)
     fig_filename_2_gif=strcat(num2str(weapon_auto),'Auto-',fig_filename_2_we,'+',fig_filename_2_ar,'+',fig_filename_2_su,'.gif');
 
 
-    %È¡³öÑ¡¶¨ÎäÆ÷&Ê¥ÒÅÎïµÄËùÓĞ¸¨ÖúµÄ¼«Öµ×÷Îª×ø±ê·¶Î§
+    %å–å‡ºé€‰å®šæ­¦å™¨&åœ£é—ç‰©çš„æ‰€æœ‰è¾…åŠ©çš„æå€¼ä½œä¸ºåæ ‡èŒƒå›´
     contour_level_su_max_1=squeeze(table_combo_max(we_compare1,ar_compare1,:));
     contour_level_su_min_1=squeeze(table_combo_min(we_compare1,ar_compare1,:));
     contour_level_su_max_2=squeeze(table_combo_max(we_compare2,ar_compare2,:));
     contour_level_su_min_2=squeeze(table_combo_min(we_compare2,ar_compare2,:));
 
     fig2=figure (we_compare1+10);
-    set(gcf,'Position',[100 -200 480 480+180*(size(su_compare,2)-1)]);        %·Ö±æÂÊ
+    set(gcf,'Position',[100 -200 480 480+180*(size(su_compare,2)-1)]);        %åˆ†è¾¨ç‡
     subplot_row=2;
     subplot_col=2;
 
     sub0=subplot(subplot_row,subplot_col,1);    
-    sgt=sgtitle('Ïü¹¬ÎäÆ÷¶Ô±È by ÌğèÖ×Ó & 1A7489 @Ã×ÓÎÉç');
+    sgt=sgtitle('å®µå®«æ­¦å™¨å¯¹æ¯” by ç”œæŸšå­ & 1A7489 @ç±³æ¸¸ç¤¾');
     sgt.FontName='Microsoft YaHei';
 
     if fig_gif ~= 1
-    i_su=1;     %¶şÎ¬ÔÆÍ¼
+    i_su=1;     %äºŒç»´äº‘å›¾
 
     subplot_row=size(su_compare,2)+2;
     subplot_col=2;
@@ -367,7 +366,7 @@ for we=weapon_compare  % 2:15 %  size(list_weapon,2)
     contour_level_su_lower=floor(contour_level_su_min*10)/10;
     contour_level_su_upper=ceil(contour_level_su_max*10)/10;
 
-    contour_level_we_gap=[0.05,0.1,0.1,0.2];    %µÈ¸ßÏß¼ä¾à
+    contour_level_we_gap=[0.05,0.1,0.1,0.2];    %ç­‰é«˜çº¿é—´è·
 
     contour_level_su=[contour_level_su_lower:contour_level_we_gap(su):contour_level_su_upper];
     contour_caxis_limit_su=[contour_level_su_lower,contour_level_su_upper];
@@ -379,8 +378,8 @@ for we=weapon_compare  % 2:15 %  size(list_weapon,2)
     set(gca,'YDir','reverse');
     caxis(contour_caxis_limit_su);
     title(subplot_title);
-    xlabel('¹¥»÷Á¦Õ¼±È');
-    ylabel('Ê¥ÒÅÎï');
+    xlabel('æ”»å‡»åŠ›å æ¯”');
+    ylabel('åœ£é—ç‰©');
     set(gca,'FontName','Microsoft YaHei');  
 
     subplot(subplot_row,subplot_col,i_su*2+4);
@@ -390,8 +389,8 @@ for we=weapon_compare  % 2:15 %  size(list_weapon,2)
     set(gca,'YDir','reverse');
     caxis(contour_caxis_limit_su);
     title(subplot_title);
-    xlabel('¹¥»÷Á¦Õ¼±È');
-    ylabel('Ê¥ÒÅÎï');
+    xlabel('æ”»å‡»åŠ›å æ¯”');
+    ylabel('åœ£é—ç‰©');
     set(gca,'FontName','Microsoft YaHei');
 
     i_su=i_su+1;
@@ -400,7 +399,7 @@ for we=weapon_compare  % 2:15 %  size(list_weapon,2)
 
 
 
-    i_su=1;     %ÈıÎ¬ÔÆÍ¼
+    i_su=1;     %ä¸‰ç»´äº‘å›¾
     for su=su_compare
         
         contour_level_su_max=max([contour_level_su_max_1(su);contour_level_su_max_2(su)]);
@@ -409,14 +408,14 @@ for we=weapon_compare  % 2:15 %  size(list_weapon,2)
         contour_level_su_lower=floor(contour_level_su_min*10)/10;
         contour_level_su_upper=ceil(contour_level_su_max*10)/10;
     
-        contour_level_we_gap=[0.05,0.1,0.1,0.2];    %ÊÖ¶¯ÉèÖÃµÈ¸ßÏß¼ä¾à
+        contour_level_we_gap=[0.05,0.1,0.1,0.2];    %æ‰‹åŠ¨è®¾ç½®ç­‰é«˜çº¿é—´è·
     
         contour_level_su=[contour_level_su_lower:contour_level_we_gap(su):contour_level_su_upper];
     
         contour_caxis_limit_su=[contour_level_su_lower,contour_level_su_upper];
     
         
-    %     table_3=table_combo{we_compare1,ar_compare1,su};     %±È½Ï»ù×¼ÎªÎŞ¸¨Öú
+    %     table_3=table_combo{we_compare1,ar_compare1,su};     %æ¯”è¾ƒåŸºå‡†ä¸ºæ— è¾…åŠ©
     %     table_4=table_combo{we_compare2,ar_compare2,su}; 
     
     
@@ -438,8 +437,8 @@ for we=weapon_compare  % 2:15 %  size(list_weapon,2)
             view(200,10)
             %sc1.FaceAlpha='0.1';
             title(strcat(list_weapon(we_compare1),'+',list_artifest(ar_compare1),'+',list_support(su_compare(i_su))));
-            xlabel('¹¥»÷Á¦Õ¼±È');
-            ylabel('Ê¥ÒÅÎï','rotation',0);        
+            xlabel('æ”»å‡»åŠ›å æ¯”');
+            ylabel('åœ£é—ç‰©','rotation',0);        
             set(gca,'FontName','Microsoft YaHei');
             grid on
             
@@ -455,12 +454,12 @@ for we=weapon_compare  % 2:15 %  size(list_weapon,2)
             view(200,10)
             %sc2.FaceAlpha='0.1';
             title(strcat(list_weapon(we_compare2),'+',list_artifest(ar_compare2),'+',list_support(su_compare(i_su))));
-            xlabel('¹¥»÷Á¦Õ¼±È');
-            ylabel('Ê¥ÒÅÎï','rotation',0);
+            xlabel('æ”»å‡»åŠ›å æ¯”');
+            ylabel('åœ£é—ç‰©','rotation',0);
             set(gca,'FontName','Microsoft YaHei');
             grid on
             drawnow
-            fig_frame=getframe(fig2);           %figµÚÒ»Ö¡
+            fig_frame=getframe(fig2);           %figç¬¬ä¸€å¸§
             fig_im{1}=frame2im(fig_frame);      
 
 
@@ -468,7 +467,7 @@ for we=weapon_compare  % 2:15 %  size(list_weapon,2)
         i_su=i_su+1;
 
 
-    %ÈıÎ¬Í¼Ğı×ª
+    %ä¸‰ç»´å›¾æ—‹è½¬
 
     i_fig=1;
     [fig_A,fig_map]=rgb2ind(fig_im{i_fig},256);
@@ -486,7 +485,7 @@ for we=weapon_compare  % 2:15 %  size(list_weapon,2)
         view(200+360/t_end*(t_end-t),10)
         pause(gap);
         
-        % gifÊä³ö
+        % gifè¾“å‡º
         fig_frame=getframe(fig2);
         fig_im{i_fig}=frame2im(fig_frame);        
         [fig_A,fig_map]=rgb2ind(fig_im{i_fig},256);
